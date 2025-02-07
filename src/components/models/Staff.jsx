@@ -1,11 +1,23 @@
 "use client";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export default function Staff(props) {
-  const { nodes, materials } = useGLTF("/staff-transformed.glb");
+  const { nodes, materials } = useGLTF("/models/staff-transformed.glb");
+  const modelRef = useRef();
+
+  useFrame(() => {
+    modelRef.current.rotation.y += 0.03;
+  });
   return (
-    <group {...props} dispose={null}>
+    <group
+      {...props}
+      dispose={null}
+      scale={[3, 3, 3]}
+      position={[0, -2, 0]}
+      ref={modelRef}
+    >
       <mesh
         name="Wizard_Staff3_Wizard_Staff3_0"
         castShadow
@@ -60,4 +72,4 @@ export default function Staff(props) {
   );
 }
 
-useGLTF.preload("/staff-transformed.glb");
+useGLTF.preload("/models/staff-transformed.glb");

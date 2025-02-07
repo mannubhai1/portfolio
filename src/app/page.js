@@ -1,13 +1,8 @@
 import Image from "next/image";
-import bg from "../../public/background/home-background2.png";
+import bg from "../../public/background/home-background.png";
 import Wrath from "@/components/models/Wrath";
 import RenderModel from "@/components/RenderModel";
 import Navigation from "@/components/navigation";
-
-// import dynamic from "next/dynamic";
-// const Wrath = dynamic(() => import("@/components/models/Wrath"), {
-//   ssr: false,
-// });
 
 export default function Home() {
   return (
