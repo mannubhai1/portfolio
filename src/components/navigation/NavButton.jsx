@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import AlertBox from "@/components/navigation/AlertBox"; // Import Alert
 import {
   Github,
   Home,
@@ -45,6 +47,17 @@ const getIcon = (icon) => {
 };
 
 const NavButton = ({ x, y, label, link, icon, newTab }) => {
+  const handleResumeClick = (e) => {
+    e.preventDefault();
+    const userChoice = window.confirm(
+      "Do you want to view the resume in the browser?"
+    );
+
+    if (userChoice) {
+      window.open(link, "_blank");
+    }
+  };
+
   return (
     <div
       className="absolute cursor-pointer'z-50"
@@ -58,6 +71,7 @@ const NavButton = ({ x, y, label, link, icon, newTab }) => {
         target={newTab ? "_blank" : "_self"}
         href={link}
         name={label}
+        onClick={icon === "resume" ? handleResumeClick : undefined}
       >
         <span className="relative w-14 h-14 p-4 animate-spin-slow-reverse hover:text-accent group-hover:pause">
           {getIcon(icon)}
