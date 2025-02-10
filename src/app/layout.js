@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <body
         className={clsx(
           inter.variable,
-          "bg-background text-foreground antialiased"
+          "bg-background text-foreground antialiased font-inter"
         )}
       >
         {children}
