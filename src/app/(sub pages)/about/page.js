@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import bg from "../../../../public/background/about-background.png";
+import bg from "../../../../public/background/about-background2.png";
 
 import RenderModel from "@/components/RenderModel";
 import Hat from "../../../components/models/Hat";
