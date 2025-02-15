@@ -28,7 +28,6 @@ export default function Form() {
       )
       .then(
         () => {
-          // console.log("SUCCESS!");
           toast.success(
             "Message sent successfully! I'll get back to you soon ",
             {
@@ -37,7 +36,6 @@ export default function Form() {
           );
         },
         (error) => {
-          // console.log("FAILED...", error.text);
           toast.error("Failed to send message!", {
             id: toastId,
           });
@@ -46,7 +44,6 @@ export default function Form() {
   };
 
   const onSubmit = (data) => {
-    // console.log(data);
     const templateParams = {
       to_name: "Mannu",
       from_name: data.Name,
