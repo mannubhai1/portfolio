@@ -1,5 +1,14 @@
+"use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
+
+const item = {
+  hidden: { opacity: 0, y: 100 },
+  show: { opacity: 1, y: 0 },
+};
+
+const NavLink = motion.create(Link);
 
 const ProjectLayout = ({ name, description, date, demoLink }) => {
   const truncateText = (text, maxLength) => {
@@ -8,7 +17,8 @@ const ProjectLayout = ({ name, description, date, demoLink }) => {
       : text;
   };
   return (
-    <Link
+    <NavLink
+      variants={item}
       href={demoLink}
       target="_blank"
       className="text-xs xs:text-sm md:text-base flex items-center justify-center w-full relative rounded-lg overflow-hidden p-4 md:p-6 custom-bg"
@@ -24,7 +34,7 @@ const ProjectLayout = ({ name, description, date, demoLink }) => {
       <p className="text-muted sm:text-foreground">
         {new Date(date).toDateString()}
       </p>
-    </Link>
+    </NavLink>
   );
 };
 

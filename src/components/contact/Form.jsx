@@ -3,6 +3,25 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { Toaster, toast } from "sonner";
+import { motion } from "framer-motion";
+
+const variants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { scale: 0 },
+  show: { scale: 1 },
+};
 
 export default function Form() {
   const {
@@ -56,12 +75,16 @@ export default function Form() {
   return (
     <>
       <Toaster richColors={true} />
-      <form
+      <motion.form
+        variants={variants}
+        initial="hidden"
+        animate="show"
         onSubmit={handleSubmit(onSubmit)}
         className="
       max-w-md w-full flex flex-col items-center justify-center space-y-4"
       >
-        <input
+        <motion.input
+          variants={item}
           className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
           type="text"
           placeholder="Name"
@@ -78,7 +101,8 @@ export default function Form() {
             {errors.Name.message}
           </span>
         )}
-        <input
+        <motion.input
+          variants={item}
           className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
           type="email"
           placeholder="Email"
@@ -89,7 +113,8 @@ export default function Form() {
             {errors.Email.message}
           </span>
         )}
-        <textarea
+        <motion.textarea
+          variants={item}
           className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
           placeholder="Message"
           {...register("Message", {
@@ -110,12 +135,13 @@ export default function Form() {
           </span>
         )}
 
-        <input
+        <motion.input
+          variants={item}
           value="Cast your Message"
           className="px-10 py-4 rounded-md shadow-lg bg-background border borer-accent/30 border-solid hover:shadow-glass-sm backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer capitalize"
           type="submit"
         />
-      </form>
+      </motion.form>
     </>
   );
 }

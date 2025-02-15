@@ -1,19 +1,6 @@
-import clsx from "clsx";
 import React from "react";
-import LeetcodeStats from "./LeetcodeStats";
-
-const ItemLayout = ({ children, className }) => {
-  return (
-    <div
-      className={clsx(
-        "custom-bg p-6 sm:p-8 rounded-xl flex items-center justify-center space-y-8",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-};
+import ItemLayout from "./ItemLayout";
+// import LeetcodeStats from "./LeetcodeStats";
 
 const AboutDetails = () => {
   return (

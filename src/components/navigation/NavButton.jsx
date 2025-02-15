@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import {
   Github,
   Home,
@@ -53,7 +53,7 @@ const item = {
   show: { scale: 1 },
 };
 
-const NavLink = motion(Link);
+const NavLink = motion.create(Link);
 
 const NavButton = ({
   x,
